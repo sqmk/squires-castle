@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "afplay": "^1.0.1",
+    "chalk": "^1.1.1",
+    "huejay": "^0.8.1",
+    "waitup": "^0.1.1"
+  }
+}
