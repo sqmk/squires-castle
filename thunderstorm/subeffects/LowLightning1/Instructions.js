@@ -25,6 +25,9 @@ class Instructions {
       .then(() => this.lightOff())
       .then(() => this.lightCleanup())
       .catch(error => {
+        this.manager.lightBusy = false;
+        this.manager.subeffectsBusy = false;
+
         this.manager.logError(error.stack);
       });
   }
@@ -33,7 +36,7 @@ class Instructions {
     this.manager.logLight(`Turning light ${this.light.id} on`);
 
     this.light.on             = true;
-    this.light.brightness     = 25;
+    this.light.brightness     = 100;
     this.light.colorTemp      = 153;
     this.light.transitionTime = 0;
 
@@ -52,7 +55,7 @@ class Instructions {
   lightHigh() {
     this.manager.logLight(`Turning light ${this.light.id} high`);
 
-    this.light.brightness     = 25;
+    this.light.brightness     = 100;
     this.light.transitionTime = 0;
 
     return this.manager.lightClient.saveLight(this.light);

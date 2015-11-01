@@ -39,6 +39,8 @@ class Instructions {
       .then(() => this.lightOff())
       .then(() => this.lightCleanup())
       .catch(error => {
+        this.manager.lightBusy = false;
+
         this.manager.logError(error.stack);
       });
   }
